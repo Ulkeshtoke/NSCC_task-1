@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Signup Form with Dashboard - Beautiful Design</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #4a4a4a;
+      min-height: 100vh;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .container {
+      background: #ffffffee;
+      max-width: 900px;
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      display: flex;
+      overflow: hidden;
+      gap: 0;
+    }
+
+    .image-panel {
+      flex: 1;
+      background: url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=800&q=80') center center/cover no-repeat;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      position: relative;
+      min-height: 440px;
+    }
+    .image-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(102,126,234,0.75), rgba(118,75,162,0.85));
+      border-radius: 20px 0 0 20px;
+      pointer-events: none;
+    }
+
+    .form-panel {
+      flex: 1;
+      padding: 48px 48px 48px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .form-panel h2 {
+      margin: 0 0 24px 0;
+      color: #3e4fc8;
+      font-weight: 700;
+      font-size: 2rem;
+      text-align: center;
+      user-select: none;
+    }
+
+    form {
+      width: 100%;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      color: #575757;
+      margin-bottom: 10px;
+      margin-top: 24px;
+      user-select: none;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 12px;
+      border: 2px solid #d5d5d5;
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+    }
+    input::placeholder {
+      color: #bbb;
+      font-style: italic;
+    }
+    input:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 8px 2px rgba(102,126,234,0.6);
+    }
+
+    button {
+      margin-top: 34px;
+      width: 100%;
+      padding: 14px 0;
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+    button:hover {
+      background: linear-gradient(90deg, #5a6ad1 0%, #673c9c 100%);
+      box-shadow: 0 10px 28px rgba(87, 108, 209, 0.65);
+    }
+
+    #msg {
+      margin-top: 18px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      user-select: none;
+      min-height: 22px;
+      color: #d43838;
+    }
+    #msg.success {
+      color: #27ae60;
+    }
+
+    table {
+      margin-top: 40px;
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #3a3a3a;
+      border-radius: 14px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+    th {
+      background: #667eea;
+      color: white;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 14px 20px;
+      user-select: none;
+    }
+    td {
+      background: #f7f9fc;
+      padding: 16px 24px;
+      border-bottom: 1px solid #ccc;
+      font-family: monospace, monospace;
+      user-select: text;
+    }
+    tbody tr:hover td {
+      background: #e2e7fc;
+    }
+
+    .deleteBtn {
+      background: #e74c3c;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 16px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    .deleteBtn:hover {
+      background: #c0392b;
+    }
+
+    /* Responsive */
+    @media (max-width: 850px) {
+      .container {
+        flex-direction: column;
+        border-radius: 20px;
+      }
+      .image-panel, .form-panel {
+        border-radius: 20px;
+      }
+      .image-panel {
+        height: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Signup Form with Validation & Dashboard</h1>
+
+  <div class="container" role="main" aria-label="Signup form and registered users dashboard">
+
+    <div class="image-panel" aria-hidden="true"></div>
+
+    <div class="form-panel">
+      <h2>Create Your Account</h2>
+
+      <form id="signupForm" aria-label="Signup form">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter your username" required aria-required="true" />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="example@email.com" required aria-required="true" />
+
+        <label for="password">Password (min 6 chars)</label>
+        <input type="password" id="password" placeholder="Create a password" required aria-required="true" />
+
+        <button type="submit">Sign Up</button>
+        <div id="msg" role="alert" aria-live="polite" class="small"></div>
+      </form>
+    </div>
+
+  </div>
+
+  <h2>Registered Users</h2>
+  <table id="usersTable" role="table" aria-label="Registered users list">
+    <thead>
+      <tr>
+        <th scope="col">Username</th>
+        <th scope="col">Email</th>
+        <th scope="col">Password Hash</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    /* Helper: SHA-256 hashing using Web Crypto API */
+    async function hashPassword(password) {
+      const enc = new TextEncoder();
+      const data = enc.encode(password);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+      return hashHex;
+    }
+
+    /* Validation helpers */
+    function isValidEmail(email) {
+      return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);
+    }
+
+    /* localStorage helpers */
+    function getUsers() {
+      const raw = localStorage.getItem('users');
+      return raw ? JSON.parse(raw) : [];
+    }
+    function saveUsers(users) {
+      localStorage.setItem('users', JSON.stringify(users));
+    }
+
+    /* Render table */
+    function renderUsersTable() {
+      const tbody = document.querySelector('#usersTable tbody');
+      tbody.innerHTML = '';
+      const users = getUsers();
+      if (users.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="4" class="small">No users yet</td></tr>';
+        return;
+      }
+      users.forEach(user => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${escapeHtml(user.username)}</td>
+          <td>${escapeHtml(user.email)}</td>
+          <td style="font-family: monospace; font-size: 0.9rem;">${user.passwordHash}</td>
+          <td><button data-id="${user.id}" class="deleteBtn" aria-label="Delete user ${escapeHtml(user.username)}">Delete</button></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    /* Escape HTML to avoid injection */
+    function escapeHtml(text) {
+      return String(text)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+
+    /* Delete user */
+    document.addEventListener('click', (e) => {
+      if (e.target.matches('.deleteBtn')) {
+        const id = e.target.dataset.id;
+        let users = getUsers();
+        users = users.filter(u => String(u.id) !== String(id));
+        saveUsers(users);
+        renderUsersTable();
+      }
+    });
+
+    /* Form submit */
+    document.getElementById('signupForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msg = document.getElementById('msg');
+      msg.textContent = '';
+      msg.classList.remove('success');
+
+      const username = document.getElementById('username').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+
+      // validations
+      if (!username) { msg.textContent = 'Username cannot be empty.'; return; }
+      if (!isValidEmail(email)) { msg.textContent = 'Enter a valid email.'; return; }
+      if (password.length < 6) { msg.textContent = 'Password must be at least 6 characters.'; return; }
+
+      // check if email already exists
+      const users = getUsers();
+      if (users.some(u => u.email.toLowerCase() === email.toLowerCase())) {
+        msg.textContent = 'A user with this email already exists.';
+        return;
+      }
+
+      // hash password
+      const passwordHash = await hashPassword(password);
+
+      // create user
+      const newUser = {
+        id: Date.now(),
+        username,
+        email,
+        passwordHash,
+        createdAt: new Date().toISOString()
+      };
+      users.push(newUser);
+      saveUsers(users);
+
+      // clear form & update UI
+      e.target.reset();
+      msg.textContent = 'User registered successfully!';
+      msg.classList.add('success');
+      renderUsersTable();
+    });
+
+    /* Initial render */
+    renderUsersTable();
+  </script>
+
+</body>
+</html>
