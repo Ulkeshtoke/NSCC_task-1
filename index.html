@@ -233,11 +233,13 @@
       box-shadow: 0 8px 30px rgba(0,0,0,0.1);
       padding: 20px;
     }
-    .side-panel img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 16px;
-    }
+    ..side-panel img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  max-height: 400px; /* Increase this for taller image */
+  width: auto;       /* maintain aspect ratio */
+}
     /* Responsive */
     @media (max-width: 1100px) {
       .container {
@@ -408,4 +410,5 @@
   </script>
 </body>
 </html>
+
 
