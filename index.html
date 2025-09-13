@@ -4,93 +4,117 @@
   <meta charset="utf-8" />
   <title>Signup Form with Dashboard - Beautiful Design</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: #4a4a4a;
+      background: linear-gradient(1deg, #6eea 0%, #7ba2 80%);
       min-height: 100vh;
       margin: 0;
-      padding: 40px 20px;
+      padding: 40px 15px;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-
     h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.2rem;
+      letter-spacing: 2px;
       color: #fff;
       font-weight: 700;
       margin-bottom: 16px;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      text-shadow: 0 2px 10px rgba(0,0,0,0.18);
+      background: linear-gradient(90deg, #f7b733 12%, #6f86d6 72%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-
     .container {
-      background: #ffffffee;
+      background: rgba(255,255,255,0.19);
       max-width: 900px;
       width: 100%;
-      border-radius: 20px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      border-radius: 24px;
+      box-shadow: 0 10px 40px 0 rgba(90,86,131,0.22), 0 2px 8px 0 rgba(118,75,162,0.07);
       display: flex;
       overflow: hidden;
-      gap: 0;
+      backdrop-filter: blur(12px) saturate(135%);
+      border: 2px solid #f7b73344;
+      position: relative;
+      transition: box-shadow 0.4s;
     }
-
+    .container::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      pointer-events: none;
+      box-shadow: 0 0 90px 0 rgba(118,75,162, .25),0 0 0 0 transparent;
+      z-index: 0;
+    }
     .image-panel {
       flex: 1;
       background: url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=800&q=80') center center/cover no-repeat;
-      border-top-left-radius: 20px;
-      border-bottom-left-radius: 20px;
+      border-top-left-radius: 24px;
+      border-bottom-left-radius: 24px;
+      min-height: 470px;
       position: relative;
-      min-height: 440px;
+      z-index: 1;
     }
     .image-panel::after {
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(135deg, rgba(102,126,234,0.75), rgba(118,75,162,0.85));
-      border-radius: 20px 0 0 20px;
-      pointer-events: none;
+      background: linear-gradient(135deg,rgba(102,126,234,0.72),rgba(118,75,162,0.84));
+      border-radius: 24px 0 0 24px;
+      z-index: 1;
     }
-
     .form-panel {
       flex: 1;
-      padding: 48px 48px 48px 36px;
+      padding: 56px 56px 56px 40px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      z-index: 1;
+      position: relative;
+      background: rgba(255,255,255,0.58);
+      border-top-right-radius: 24px;
+      border-bottom-right-radius: 24px;
+      box-shadow: 0 2px 12px rgba(102,126,234,0.06);
+      backdrop-filter: blur(7px);
     }
     .form-panel h2 {
-      margin: 0 0 24px 0;
-      color: #3e4fc8;
+      font-family: 'Bebas Neue', 'Poppins', sans-serif;
+      color: #2e386f;
       font-weight: 700;
-      font-size: 2rem;
+      letter-spacing: 1.5px;
+      font-size: 2.8rem;
       text-align: center;
+      margin-bottom: 16px;
       user-select: none;
     }
-
     form {
       width: 100%;
     }
     label {
       display: block;
       font-weight: 600;
-      color: #575757;
-      margin-bottom: 10px;
-      margin-top: 24px;
+      color: #6157c7;
+      margin-bottom: 9px;
+      margin-top: 25px;
       user-select: none;
+      font-size: 1.08rem;
+      letter-spacing: 0.09rem;
     }
-
     input {
       width: 100%;
-      padding: 14px 18px;
-      border-radius: 12px;
+      padding: 15px 19px;
+      border-radius: 14px;
       border: 2px solid #d5d5d5;
-      font-size: 1rem;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      font-size: 1.07rem;
+      transition: border-color 0.26s, box-shadow 0.15s;
       font-family: 'Poppins', sans-serif;
+      background: #f6f6ff;
+      margin-bottom: 2px;
+      box-shadow: 0 2px 6px rgba(102,126,234,0.04);
     }
     input::placeholder {
       color: #bbb;
@@ -98,133 +122,127 @@
     }
     input:focus {
       outline: none;
-      border-color: #667eea;
-      box-shadow: 0 0 8px 2px rgba(102,126,234,0.6);
+      border-color: #764ba2;
+      box-shadow: 0 0 8px 3px rgba(102,126,234,0.16);
+      background: #fcf8ff;
     }
-
     button {
       margin-top: 34px;
       width: 100%;
-      padding: 14px 0;
-      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      padding: 15px 0;
+      background: linear-gradient(90deg,#667eea 0%,#f7b733 100%);
       color: white;
+      font-family: 'Bebas Neue', 'Poppins', sans-serif;
       font-weight: 700;
-      font-size: 1.2rem;
+      font-size: 1.26rem;
       border: none;
-      border-radius: 14px;
+      border-radius: 16px;
       cursor: pointer;
-      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
-      transition: background 0.3s ease;
+      box-shadow: 0 4px 18px rgba(102,126,234,0.23),0 2px 10px rgba(247,183,51,0.11);
+      transition: background 0.25s, transform 0.18s, box-shadow 0.3s;
       user-select: none;
     }
-    button:hover {
-      background: linear-gradient(90deg, #5a6ad1 0%, #673c9c 100%);
-      box-shadow: 0 10px 28px rgba(87, 108, 209, 0.65);
+    button:hover, button:active {
+      background: linear-gradient(90deg,#5a6ad1 0%,#ffbc42 100%);
+      box-shadow: 0 10px 28px rgba(87,108,209,0.25),0 2px 8px rgba(118,75,162,0.18);
+      transform: scale(1.03);
     }
-
     #msg {
       margin-top: 18px;
-      font-size: 1rem;
+      font-size: 1.09rem;
       font-weight: 600;
       text-align: center;
       user-select: none;
-      min-height: 22px;
+      min-height: 24px;
       color: #d43838;
     }
     #msg.success {
       color: #27ae60;
     }
-
     table {
       margin-top: 40px;
       width: 100%;
       border-collapse: separate;
-      border-spacing: 0 8px;
-      font-size: 1rem;
+      border-spacing: 0 7px;
+      font-size: 1.09rem;
       font-weight: 500;
       color: #3a3a3a;
-      border-radius: 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.97);
+      box-shadow: 0 10px 28px rgba(102,126,234,0.08), 0 2px 10px rgba(118,75,162,0.08);
       overflow: hidden;
-      background: white;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      backdrop-filter: blur(4px);
+      transition: box-shadow 0.4s;
     }
     th {
-      background: #667eea;
+      background: linear-gradient(90deg,#764ba2 0%, #f7b733 80%);
       color: white;
       text-transform: uppercase;
-      font-weight: 600;
-      padding: 14px 20px;
+      font-weight: 700;
+      padding: 13px 18px;
+      border: none;
       user-select: none;
+      letter-spacing: 0.1em;
     }
     td {
       background: #f7f9fc;
-      padding: 16px 24px;
-      border-bottom: 1px solid #ccc;
-      font-family: monospace, monospace;
-      user-select: text;
+      padding: 16px 22px;
+      border-bottom: 1px solid #d5d5d5;
+      font-family: 'Roboto Mono', monospace;
+      transition: background 0.24s;
     }
     tbody tr:hover td {
       background: #e2e7fc;
     }
-
     .deleteBtn {
       background: #e74c3c;
       border: none;
       border-radius: 10px;
-      padding: 10px 16px;
+      padding: 11px 17px;
       color: white;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.23s, transform 0.18s;
       user-select: none;
+      font-family: 'Poppins', sans-serif;
     }
-    .deleteBtn:hover {
+    .deleteBtn:hover, .deleteBtn:active {
       background: #c0392b;
+      transform: scale(1.04);
     }
-
     /* Responsive */
-    @media (max-width: 850px) {
+    @media (max-width: 870px) {
       .container {
         flex-direction: column;
-        border-radius: 20px;
+        border-radius: 24px;
       }
       .image-panel, .form-panel {
-        border-radius: 20px;
+        border-radius: 24px;
       }
       .image-panel {
-        height: 280px;
+        height: 200px;
       }
     }
   </style>
 </head>
 <body>
-
   <h1>Signup Form with Validation & Dashboard</h1>
-
   <div class="container" role="main" aria-label="Signup form and registered users dashboard">
-
     <div class="image-panel" aria-hidden="true"></div>
-
     <div class="form-panel">
       <h2>Create Your Account</h2>
-
       <form id="signupForm" aria-label="Signup form">
         <label for="username">Username</label>
         <input type="text" id="username" placeholder="Enter your username" required aria-required="true" />
-
         <label for="email">Email</label>
         <input type="email" id="email" placeholder="example@email.com" required aria-required="true" />
-
         <label for="password">Password (min 6 chars)</label>
         <input type="password" id="password" placeholder="Create a password" required aria-required="true" />
-
         <button type="submit">Sign Up</button>
         <div id="msg" role="alert" aria-live="polite" class="small"></div>
       </form>
     </div>
-
   </div>
-
   <h2>Registered Users</h2>
   <table id="usersTable" role="table" aria-label="Registered users list">
     <thead>
@@ -237,7 +255,6 @@
     </thead>
     <tbody></tbody>
   </table>
-
   <script>
     /* Helper: SHA-256 hashing using Web Crypto API */
     async function hashPassword(password) {
@@ -248,12 +265,10 @@
       const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
       return hashHex;
     }
-
     /* Validation helpers */
     function isValidEmail(email) {
-      return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
-
     /* localStorage helpers */
     function getUsers() {
       const raw = localStorage.getItem('users');
@@ -262,7 +277,6 @@
     function saveUsers(users) {
       localStorage.setItem('users', JSON.stringify(users));
     }
-
     /* Render table */
     function renderUsersTable() {
       const tbody = document.querySelector('#usersTable tbody');
@@ -277,13 +291,12 @@
         tr.innerHTML = `
           <td>${escapeHtml(user.username)}</td>
           <td>${escapeHtml(user.email)}</td>
-          <td style="font-family: monospace; font-size: 0.9rem;">${user.passwordHash}</td>
+          <td style="font-family: monospace; font-size: 0.95rem;">${user.passwordHash}</td>
           <td><button data-id="${user.id}" class="deleteBtn" aria-label="Delete user ${escapeHtml(user.username)}">Delete</button></td>
         `;
         tbody.appendChild(tr);
       });
     }
-
     /* Escape HTML to avoid injection */
     function escapeHtml(text) {
       return String(text)
@@ -291,7 +304,6 @@
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;');
     }
-
     /* Delete user */
     document.addEventListener('click', (e) => {
       if (e.target.matches('.deleteBtn')) {
@@ -302,33 +314,27 @@
         renderUsersTable();
       }
     });
-
     /* Form submit */
     document.getElementById('signupForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const msg = document.getElementById('msg');
       msg.textContent = '';
       msg.classList.remove('success');
-
       const username = document.getElementById('username').value.trim();
       const email = document.getElementById('email').value.trim();
       const password = document.getElementById('password').value;
-
       // validations
       if (!username) { msg.textContent = 'Username cannot be empty.'; return; }
       if (!isValidEmail(email)) { msg.textContent = 'Enter a valid email.'; return; }
       if (password.length < 6) { msg.textContent = 'Password must be at least 6 characters.'; return; }
-
       // check if email already exists
       const users = getUsers();
       if (users.some(u => u.email.toLowerCase() === email.toLowerCase())) {
         msg.textContent = 'A user with this email already exists.';
         return;
       }
-
       // hash password
       const passwordHash = await hashPassword(password);
-
       // create user
       const newUser = {
         id: Date.now(),
@@ -339,17 +345,15 @@
       };
       users.push(newUser);
       saveUsers(users);
-
       // clear form & update UI
       e.target.reset();
       msg.textContent = 'User registered successfully!';
       msg.classList.add('success');
       renderUsersTable();
     });
-
     /* Initial render */
     renderUsersTable();
   </script>
-
 </body>
 </html>
+
