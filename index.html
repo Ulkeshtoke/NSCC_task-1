@@ -40,7 +40,7 @@
     }
     .container {
       background: rgba(255,255,255,0.35);
-      max-width: 1100px;
+      max-width: 900px;
       width: 100%;
       border-radius: 24px;
       box-shadow: 0 12px 44px rgba(49,183,194,0.14), 0 2px 8px rgba(106,66,230,0.10);
@@ -50,7 +50,6 @@
       position: relative;
       transition: box-shadow 0.4s;
       backdrop-filter: blur(8px) saturate(140%);
-      gap: 20px;
     }
     .container::before {
       content: "";
@@ -223,40 +222,17 @@
       background: #31b7c2;
       transform: scale(1.04);
     }
-    .side-panel {
-      flex: 0 0 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255,255,255,0.6);
-      border-radius: 20px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-      padding: 20px;
-    }
-    ..side-panel img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 16px;
-  max-height: 4000px; /* Increase this for taller image */
-  width: auto;       /* maintain aspect ratio */
-}
     /* Responsive */
-    @media (max-width: 1100px) {
+    @media (max-width: 870px) {
       .container {
         flex-direction: column;
-        gap: 24px;
         border-radius: 24px;
       }
-      .image-panel, .form-panel, .side-panel {
+      .image-panel, .form-panel {
         border-radius: 24px;
       }
       .image-panel {
         height: 200px;
-      }
-      .side-panel {
-        flex: none;
-        max-width: 280px;
-        margin: 0 auto;
       }
       header {
         width: 100%;
@@ -291,9 +267,6 @@
         <button type="submit">Sign Up</button>
         <div id="msg" role="alert" aria-live="polite" class="small"></div>
       </form>
-    </div>
-    <div class="side-panel" aria-hidden="true">
-      <img src="https://raw.githubusercontent.com/Ulkeshtoke/NSCC_task-1/main/code.jpg" alt="Decoration Image" />
     </div>
   </div>
   <h2 style="font-family:'Bebas Neue',sans-serif; color: white; user-select: none; text-shadow: 0 2px 10px rgba(0,0,0,0.35); font-size: 2.2rem; letter-spacing: 1.2px; margin: 40px 0 18px 0;">Registered Users</h2>
@@ -410,6 +383,3 @@
   </script>
 </body>
 </html>
-
-
-
