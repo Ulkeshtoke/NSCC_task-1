@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Signup Form with Dashboard - Beautiful Design</title>
+  <title>Recruitment Task</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -41,7 +40,7 @@
     }
     .container {
       background: rgba(255,255,255,0.35);
-      max-width: 900px;
+      max-width: 1100px;
       width: 100%;
       border-radius: 24px;
       box-shadow: 0 12px 44px rgba(49,183,194,0.14), 0 2px 8px rgba(106,66,230,0.10);
@@ -51,6 +50,7 @@
       position: relative;
       transition: box-shadow 0.4s;
       backdrop-filter: blur(8px) saturate(140%);
+      gap: 20px;
     }
     .container::before {
       content: "";
@@ -94,14 +94,14 @@
     }
     .form-panel h2 {
       font-family: 'Bebas Neue', 'Poppins', sans-serif;
-      color: white;
+      color: #6a42e6;
       font-weight: 700;
       letter-spacing: 1.5px;
       font-size: 2.6rem;
       text-align: center;
       margin-bottom: 18px;
       user-select: none;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+      text-shadow: none;
     }
     form {
       width: 100%;
@@ -223,17 +223,38 @@
       background: #31b7c2;
       transform: scale(1.04);
     }
+    .side-panel {
+      flex: 0 0 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.6);
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+    .side-panel img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+    }
     /* Responsive */
-    @media (max-width: 870px) {
+    @media (max-width: 1100px) {
       .container {
         flex-direction: column;
+        gap: 24px;
         border-radius: 24px;
       }
-      .image-panel, .form-panel {
+      .image-panel, .form-panel, .side-panel {
         border-radius: 24px;
       }
       .image-panel {
         height: 200px;
+      }
+      .side-panel {
+        flex: none;
+        max-width: 280px;
+        margin: 0 auto;
       }
       header {
         width: 100%;
@@ -252,12 +273,12 @@
 <body>
   <header>
     <img src="https://raw.githubusercontent.com/Ulkeshtoke/NSCC_task-1/main/images.png" alt="Newton School Coding Club Logo" class="logo" />
-    <h1>Signup Form with Validation & Dashboard</h1>
+    <h1>Recruitment Task</h1>
   </header>
   <div class="container" role="main" aria-label="Signup form and registered users dashboard">
     <div class="image-panel" aria-hidden="true"></div>
     <div class="form-panel">
-      <h2>Create Your Account</h2>
+      <h2>Signup Form</h2>
       <form id="signupForm" aria-label="Signup form">
         <label for="username">Username</label>
         <input type="text" id="username" placeholder="Enter your username" required aria-required="true" />
@@ -268,6 +289,9 @@
         <button type="submit">Sign Up</button>
         <div id="msg" role="alert" aria-live="polite" class="small"></div>
       </form>
+    </div>
+    <div class="side-panel" aria-hidden="true">
+      <img src="https://raw.githubusercontent.com/Ulkeshtoke/NSCC_task-1/main/code.png" alt="Decoration Image" />
     </div>
   </div>
   <h2 style="font-family:'Bebas Neue',sans-serif; color: white; user-select: none; text-shadow: 0 2px 10px rgba(0,0,0,0.35); font-size: 2.2rem; letter-spacing: 1.2px; margin: 40px 0 18px 0;">Registered Users</h2>
